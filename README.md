@@ -55,7 +55,6 @@ Para finalizar esta práctica, debemos hacer un Pull Request para que nuestros a
 
 
 
-
 ##Primer hito: Estructuración y tema del proyecto.
 
 ###Prerrequisitos
