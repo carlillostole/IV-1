@@ -1,6 +1,6 @@
 # Repositorio de las prácticas
 
-Aún no tengo decidido cuál será el proyecto en cuestión, por lo que en el siguiente hito tomaré una decisión.
+
 
 ##Práctica 0: Git y Github
 
