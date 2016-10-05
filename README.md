@@ -20,7 +20,7 @@ Debemos realizar los siguientes pasos:
 2. Una vez creada la clave, debemos copiarla. Para ello hacemos lo siguiente: ``cat /home/sergio/.ssh/id_rsa.pub`` Copiamos lo que nos imprime por pantalla y eso lo pegamos en la configuración de SSH que se encuentra en nuestro perfil de Github.
 3. Una vez hecho esto, ya tendremos lista nuestro par de claves y podremos subir archivos sin necesidad de poner nuestro usuario y contraseña de Github
 
-#### Creación correcta del nombre y correo electrónico
+#### Creación correcta del nombre y correo electrónico 
 
 Para que aparezcan en los commits nuestro nombre y correo debemos poner las siguientes órdenes:
 
