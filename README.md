@@ -52,3 +52,26 @@ Para poder añadirlos a nuestro repositorio basta con hacer ``git add nombre_fic
 #### Pull Request
 
 Para finalizar esta práctica, debemos hacer un Pull Request para que nuestros archivos se suban al repositorio común de la asignatura
+
+
+
+##Primer hito: Estructuración y tema del proyecto.
+
+###Prerrequisitos
+
+- [x] Tener aprobado el hito 0 de proyecto
+- [x] Haber alcanzado el 80% de los objetivos del tema introductorio 
+- [x] Haber realizado los ejercicios propuestos.
+
+#### Proyecto elegido y breve descripción
+
+Para el proyecto de esta asignatura he decidido realizar un bot de Telegram. Con este bot se pretende resolver el problema de los jugadores de Comunio(una página web en la que se juegan ligas internas en la que existen una serie de puntuaciones para cada jugador según haya jugado en dicha jornada de liga) en la que se podrá consultar el mercado de fichajes, la alineación que tiene para esa jornada y muchas más opciones que se irán indicando en hitos posteriores.
+
+#### Servicios necesarios
+
+- Servidor de base de datos
+- Python para la creación del bot
+- Despliegue en la nube
+- API para el bot de Telegram
+- API para acceso a Comunio
+- Monitorización
