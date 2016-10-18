@@ -10,4 +10,4 @@ Para el proyecto de esta asignatura he decidido realizar un bot de Telegram. Con
 - Python para el desarrollo del bot
 - Despliegue en la nube
 - Monitorización
-- Herramienta aún por determinar para escrapear los datos
+- Herramienta aún por determinar para escrapear los datos 
