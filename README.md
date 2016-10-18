@@ -7,8 +7,7 @@ Para el proyecto de esta asignatura he decidido realizar un bot de Telegram. Con
 #### Servicios necesarios
 
 - Servidor de base de datos
-- Python para la creación del bot
+- Python para el desarrollo del bot
 - Despliegue en la nube
-- API para el bot de Telegram
-- API para acceso a Comunio
 - Monitorización
+- Herramienta aún por determinar para escrapear los datos
