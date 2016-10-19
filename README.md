@@ -6,8 +6,18 @@ Para el proyecto de esta asignatura he decidido realizar un bot de Telegram. Con
 
 #### Servicios necesarios
 
-- Servidor de base de datos
-- Python para el desarrollo del bot
+- Servidor de base de datos, que posiblemente se realizara en MySQL : El servidor de bases de datos almacenará el nombre de usuario y contraseña de Comunio para así, si ya ha realizado alguna petición al bot, no sería necesario volver a pedirle usuario y contraseña.
+
 - Despliegue en la nube
+
 - Monitorización
-- Herramienta aún por determinar para escrapear los datos 
+
+- Herramienta aún por determinar para escrapear los datos: Posiblemente se realizarán consultas dependiendo de lo que el usuario pida y éste devuelve la información necesaria para poder ser mostrada
+
+- Usaremos el lenguaje Python para el desarrollo del bot
+
+Probablemente se alojará en una cuenta de Amazon
+
+Usaremos TravisCI para realizar test continuos
+
+Automatizaremos tareas, realizaremos despliegue continuo,.. pero esto se irán explicando en los siguientes hitos.
