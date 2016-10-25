@@ -4,7 +4,11 @@ python:
 
 # command to install dependencies
 install:
-  - make install
+  - pip install pyTelegramBotAPI
+  - distribute==0.6.24
+  - py==1.4.31
+  - pyTelegramBotAPI==2.1.7
+  - requests==2.11.1
 
 # command to run tests
 script: make test
