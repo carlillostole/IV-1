@@ -56,7 +56,7 @@ execute:
 
 Nos fijamos en cada opción del Makefile. La primera opción "install" nos instala las dependencias que necesitamos, las cuales las tenemos en el fichero requirements.txt (más adelante lo mostraré). La siguiente opción es "test", llamando a test.py que es donde lo tenemos definido. Por último la opción "execute" que nos ejecutaría el bot
 
-Por tanto, Travis analizará cada commit que se realice al repositorio y realizará un test para ver si está correcto o no (por ahora un test de prueba).
+Por tanto, Travis analizará cada commit que se realice al repositorio y realizará un test para ver si está correcto o no
 
 ![Imagen 1](http://i68.tinypic.com/htd0ur.png)
 
