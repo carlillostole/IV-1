@@ -120,9 +120,9 @@ Por tanto, Travis analizará cada commit que se realice al repositorio y realiza
 
 Y travis nos dice lo siguiente:
 
-![Imagen 2](http://i68.tinypic.com/2chb8sg.png)
+![Imagen 2](http://i63.tinypic.com/1z64n6c.png)
 
-![Imagen 3](http://i67.tinypic.com/aw44eu.png)
+![Imagen 3](http://i67.tinypic.com/2evck13.png)
 
 Podemos ver que ha funcionado correctamente y por eso se nos genera el icono en verde que pone "build passing", insertado al inicio de este documento.
 
