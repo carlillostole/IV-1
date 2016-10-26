@@ -4,6 +4,7 @@ from ComunioPy import Comunio
 from telebot import types
 import os
 import sqlite3
+import modificaciones
 
 bot = telebot.TeleBot(os.environ["TOKENBOT"])
 
@@ -37,8 +38,8 @@ def send_alineacion(m):
 
 		else:
 			uid = test.get_myid() #Saco el uid del usuario
-			
-			resultado_alineacion = alineacion_(test,uid)
+			modificaciones.get_nombre(test,uid)
+			resultado_alineacion = modificaciones.alineacion_(test,uid)
 			bot.send_message(cid,resultado_alineacion)
 			#cursor_cid.execute("SELECT * FROM tabla_bot")
 			#for i in cursor_cid: print(i)
@@ -150,17 +151,6 @@ def cid_(m):
 	cid = m.chat.id
 	return cid
 
-#Alineacion
-def alineacion_(test,uid):
-	alineacion = []
-	alineacion = test.lineup_user(uid) #Alineacion del usuario
-	vecto1 = invertir(alineacion)
-	vecto = ', '.join(vecto1)
-	return vecto
-
-#Invertir la cadena
-def invertir(var):
-	return var[::-1]
 
 #Noticias
 def noticias_(test):
