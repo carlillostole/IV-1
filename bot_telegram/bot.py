@@ -8,7 +8,9 @@ import modificaciones
 import psycopg2, psycopg2.extras
 
 
-bot = telebot.TeleBot(os.environ["TOKENBOT"])
+#bot = telebot.TeleBot(os.environ["TOKENBOT"])
+TOKEN = '287783764:AAGiiRJgG4cKfgGOKbTMCLbqtzA4AsEyprE' #Ponemos nuestro TOKEN generado con el @BotFather
+bot = telebot.TeleBot(TOKEN)
 
 # Handle '/start' and '/help'
 @bot.message_handler(commands=['help', 'start'])

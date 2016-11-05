@@ -5,8 +5,9 @@ from telebot import types
 import os
 import sqlite3
 
-bot = telebot.TeleBot(os.environ["TOKENBOT"])
-
+#bot = telebot.TeleBot(os.environ["TOKENBOT"])
+TOKEN = '287783764:AAGiiRJgG4cKfgGOKbTMCLbqtzA4AsEyprE' #Ponemos nuestro TOKEN generado con el @BotFather
+bot = telebot.TeleBot(TOKEN)
 
 #Alineacion
 def alineacion_(test,uid):
