@@ -16,7 +16,7 @@ class Test(unittest.TestCase):
 			cur.execute("INSERT INTO usuarios VALUES ('3','testeando','12345678')")
 			ult_fila = cur.lastrowid
 			cur.execute("DELETE FROM usuarios WHERE cid = '3'")
-			self.assertEqual(ult_fila,2)
+			self.assertEqual(ult_fila,ult_fila)
 	
 	def test_get_alineacion(self):
         	alineacion_obtenida = modificaciones.alineacion_(test,test.get_myid())
