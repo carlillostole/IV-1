@@ -49,12 +49,14 @@ def send_alineacion(m):
 
 	if variable_aux == 0:
 		cadena_usuario_contrasenia = modificaciones.comprobar(m)
-	
-		user = cadena_usuario_contrasenia[1]				#Insertamos cid, nombre y passwd en la BD
-		passwd = cadena_usuario_contrasenia[2]
-		reg = (cid, user, passwd)
-		cursor_cid.execute("INSERT INTO usuarios VALUES (?,?,?)", reg)
-		con_bd.commit()
+		if cadena_usuario_contrasenia != -1:
+			user = cadena_usuario_contrasenia[1]				#Insertamos cid, nombre y passwd en la BD
+			passwd = cadena_usuario_contrasenia[2]
+			reg = (cid, user, passwd)
+			cursor_cid.execute("INSERT INTO usuarios VALUES (?,?,?)", reg)
+			con_bd.commit()
+		else:
+			bot.send_message(cid, "Error, debe introducir 3 parámetros. Aún no esta registrado en la base de datos")
 	else:
 		cadena_usuario_contrasenia = modificaciones.comprobar_con_bd(m)
 	
@@ -99,12 +101,14 @@ def send_noticias(m):
 
 	if variable_aux == 0:
 		cadena_usuario_contrasenia = modificaciones.comprobar(m)
-	
-		user = cadena_usuario_contrasenia[1]				#Insertamos cid, nombre y passwd en la BD
-		passwd = cadena_usuario_contrasenia[2]
-		reg = (cid, user, passwd)
-		cursor_cid.execute("INSERT INTO usuarios VALUES (?,?,?)", reg)
-		con_bd.commit()
+		if cadena_usuario_contrasenia != -1:
+			user = cadena_usuario_contrasenia[1]				#Insertamos cid, nombre y passwd en la BD
+			passwd = cadena_usuario_contrasenia[2]
+			reg = (cid, user, passwd)
+			cursor_cid.execute("INSERT INTO usuarios VALUES (?,?,?)", reg)
+			con_bd.commit()
+		else:
+			bot.send_message(cid, "Error, debe introducir 3 parámetros. Aún no esta registrado en la base de datos")
 	else:
 		cadena_usuario_contrasenia = modificaciones.comprobar_con_bd(m)
 	
@@ -150,11 +154,14 @@ def send_mercado(m):
 	if variable_aux == 0:
 		cadena_usuario_contrasenia = modificaciones.comprobar(m)
 	
-		user = cadena_usuario_contrasenia[1]				#Insertamos cid, nombre y passwd en la BD
-		passwd = cadena_usuario_contrasenia[2]
-		reg = (cid, user, passwd)
-		cursor_cid.execute("INSERT INTO usuarios VALUES (?,?,?)", reg)
-		con_bd.commit()
+		if cadena_usuario_contrasenia != -1:
+			user = cadena_usuario_contrasenia[1]				#Insertamos cid, nombre y passwd en la BD
+			passwd = cadena_usuario_contrasenia[2]
+			reg = (cid, user, passwd)
+			cursor_cid.execute("INSERT INTO usuarios VALUES (?,?,?)", reg)
+			con_bd.commit()
+		else:
+			bot.send_message(cid, "Error, debe introducir 3 parámetros. Aún no esta registrado en la base de datos")
 	else:
 		cadena_usuario_contrasenia = modificaciones.comprobar_con_bd(m)
 	
@@ -204,11 +211,14 @@ def send_ofertas(m):
 	if variable_aux == 0:
 		cadena_usuario_contrasenia = modificaciones.comprobar(m)
 	
-		user = cadena_usuario_contrasenia[1]				#Insertamos cid, nombre y passwd en la BD
-		passwd = cadena_usuario_contrasenia[2]
-		reg = (cid, user, passwd)
-		cursor_cid.execute("INSERT INTO usuarios VALUES (?,?,?)", reg)
-		con_bd.commit()
+		if cadena_usuario_contrasenia != -1:
+			user = cadena_usuario_contrasenia[1]				#Insertamos cid, nombre y passwd en la BD
+			passwd = cadena_usuario_contrasenia[2]
+			reg = (cid, user, passwd)
+			cursor_cid.execute("INSERT INTO usuarios VALUES (?,?,?)", reg)
+			con_bd.commit()
+		else:
+			bot.send_message(cid, "Error, debe introducir 3 parámetros. Aún no esta registrado en la base de datos")
 	else:
 		cadena_usuario_contrasenia = modificaciones.comprobar_con_bd(m)
 	
@@ -257,11 +267,14 @@ def send_traspasos(m):
 	if variable_aux == 0:
 		cadena_usuario_contrasenia = modificaciones.comprobar(m)
 	
-		user = cadena_usuario_contrasenia[1]				#Insertamos cid, nombre y passwd en la BD
-		passwd = cadena_usuario_contrasenia[2]
-		reg = (cid, user, passwd)
-		cursor_cid.execute("INSERT INTO usuarios VALUES (?,?,?)", reg)
-		con_bd.commit()
+		if cadena_usuario_contrasenia != -1:
+			user = cadena_usuario_contrasenia[1]				#Insertamos cid, nombre y passwd en la BD
+			passwd = cadena_usuario_contrasenia[2]
+			reg = (cid, user, passwd)
+			cursor_cid.execute("INSERT INTO usuarios VALUES (?,?,?)", reg)
+			con_bd.commit()
+		else:
+			bot.send_message(cid, "Error, debe introducir 3 parámetros. Aún no esta registrado en la base de datos")
 	else:
 		cadena_usuario_contrasenia = modificaciones.comprobar_con_bd(m)
 	
