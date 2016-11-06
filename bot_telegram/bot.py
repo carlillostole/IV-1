@@ -5,7 +5,7 @@ from telebot import types
 import os
 import sqlite3
 import modificaciones
-#import psycopg2, psycopg2.extras
+import psycopg2
 
 
 #bot = telebot.TeleBot(os.environ["TOKENBOT"])
@@ -17,11 +17,12 @@ bot = telebot.TeleBot(TOKEN)
 def send_welcome(message):
 	cid = message.chat.id # Guardamos el ID de la conversacion para poder responder.
 	bot.send_message(cid, "Introduzca acción que desea realizar, usuario de comunio y contraseña\nAcciones: \n1. /Alineacion: Devuelve la alineación con la que se jugó la última jornada\n2. /Noticias: Devuelve las dos últimas noticias\n3. /Mercado: Devuelve el mercado de fichajes de la comunidad\n4. /Ofertas: Devuelve las ofertas que me han hecho\n5. /Traspasos: Devuelve las ofertas que yo he hecho\n\nEjemplo: /Alineacion,usuario,contraseña \n\nUna vez que introduzca sus datos correctamente, solo debera introducir la acción deseada")
-	con_bd = sqlite3.connect('datos.db')#psycopg2.connect(database='test',user='postgres',password='pass', host='localhost')
+	#con_bd = sqlite3.connect('datos.db')#psycopg2.connect(database='test',user='postgres',password='pass', host='localhost')
+	con_bd = psycopg2.connect(database='d6f0n6kc34qjo7',user='ersdwrualbmqkz',password='2BhNndeKPkBdn7K3jfSvrou0M_',host='ec2-54-225-117-56.compute-1.amazonaws.com')	
 	cursor_cid = con_bd.cursor()
 
 	valor = (cid, )
-	cursor_cid.execute("DELETE FROM usuarios WHERE cid=?", valor)
+	cursor_cid.execute("DELETE FROM usuarios WHERE cid=%s", valor)
 	con_bd.commit()
 
 	cursor_cid.close()
@@ -29,16 +30,19 @@ def send_welcome(message):
 
 @bot.message_handler(commands=['Alineacion', 'alineacion'])
 def send_alineacion(m):
-	con_bd = sqlite3.connect('datos.db') #psycopg2.connect(database='test',user='postgres',password='pass', host='localhost')
+	#con_bd = sqlite3.connect('datos.db')
+	con_bd = psycopg2.connect(database='d6f0n6kc34qjo7',user='ersdwrualbmqkz',password='2BhNndeKPkBdn7K3jfSvrou0M_',host='ec2-54-225-117-56.compute-1.amazonaws.com')
 	cursor_cid = con_bd.cursor()
 	cid = modificaciones.cid_(m)
 	vector_comprobar = []
 	vector_comprobar = "(" + str(cid) + ",)"
 		
-	vector_cc = sqlite3.Cursor
-	vector_cc = cursor_cid.execute("SELECT cid FROM usuarios")
+	vector_cc = con_bd.cursor()
+	vector_cc.execute("SELECT cid FROM usuarios")
+	rows = vector_cc.fetchall()
+	#print rows
 	existe = False
-	for i in vector_cc:
+	for i in rows:
 		if existe != True:
 			if str(i) == vector_comprobar:		#Encontramos el cid en la bd 			
 				existe = True
@@ -53,7 +57,7 @@ def send_alineacion(m):
 			user = cadena_usuario_contrasenia[1]				#Insertamos cid, nombre y passwd en la BD
 			passwd = cadena_usuario_contrasenia[2]
 			reg = (cid, user, passwd)
-			cursor_cid.execute("INSERT INTO usuarios VALUES (?,?,?)", reg)
+			cursor_cid.execute("INSERT INTO usuarios VALUES (%s,%s,%s)", reg)
 			con_bd.commit()
 		else:
 			bot.send_message(cid, "Error, debe introducir 3 parámetros. Aún no esta registrado en la base de datos")
@@ -68,7 +72,7 @@ def send_alineacion(m):
 		if hasattr(test, 'myid') != True:
 			valor = (cid, )
 			bot.send_message(cid, "Usuario o contraseña incorrecta. Vuelve a intentarlo")
-			cursor_cid.execute("DELETE FROM usuarios WHERE cid=?", valor)
+			cursor_cid.execute("DELETE FROM usuarios WHERE cid=%s", valor)
 			con_bd.commit()
 		else:
 			uid = test.get_myid() #Saco el uid del usuario
@@ -81,16 +85,18 @@ def send_alineacion(m):
 
 @bot.message_handler(commands=['Noticias', 'noticias'])
 def send_noticias(m):
-	con_bd = sqlite3.connect('datos.db') #psycopg2.connect(database='test',user='postgres',password='pass', host='localhost')
+	#con_bd = sqlite3.connect('datos.db') #psycopg2.connect(database='test',user='postgres',password='pass', host='localhost')
+	con_bd = psycopg2.connect(database='d6f0n6kc34qjo7',user='ersdwrualbmqkz',password='2BhNndeKPkBdn7K3jfSvrou0M_',host='ec2-54-225-117-56.compute-1.amazonaws.com')
 	cursor_cid = con_bd.cursor()
 	cid = modificaciones.cid_(m)
 	vector_comprobar = []
 	vector_comprobar = "(" + str(cid) + ",)"
 		
-	vector_cc = sqlite3.Cursor
-	vector_cc = cursor_cid.execute("SELECT cid FROM usuarios")
+	vector_cc = con_bd.cursor()
+	vector_cc.execute("SELECT cid FROM usuarios")
+	rows = vector_cc.fetchall()
 	existe = False
-	for i in vector_cc:
+	for i in rows:
 		if existe != True:
 			if str(i) == vector_comprobar:		#Encontramos el cid en la bd 			
 				existe = True
@@ -105,7 +111,7 @@ def send_noticias(m):
 			user = cadena_usuario_contrasenia[1]				#Insertamos cid, nombre y passwd en la BD
 			passwd = cadena_usuario_contrasenia[2]
 			reg = (cid, user, passwd)
-			cursor_cid.execute("INSERT INTO usuarios VALUES (?,?,?)", reg)
+			cursor_cid.execute("INSERT INTO usuarios VALUES (%s,%s,%s)", reg)
 			con_bd.commit()
 		else:
 			bot.send_message(cid, "Error, debe introducir 3 parámetros. Aún no esta registrado en la base de datos")
@@ -120,7 +126,7 @@ def send_noticias(m):
 		if hasattr(test, 'myid') != True:
 			valor = (cid, )
 			bot.send_message(cid, "Usuario o contraseña incorrecta. Vuelve a intentarlo")
-			cursor_cid.execute("DELETE FROM usuarios WHERE cid=?", valor)
+			cursor_cid.execute("DELETE FROM usuarios WHERE cid=%s", valor)
 			con_bd.commit()
 
 		else:
@@ -133,16 +139,18 @@ def send_noticias(m):
 
 @bot.message_handler(commands=['Mercado', 'mercado'])
 def send_mercado(m):
-	con_bd = sqlite3.connect('datos.db') #psycopg2.connect(database='test',user='postgres',password='pass', host='localhost')
+	#con_bd = sqlite3.connect('datos.db') 
+	con_bd = psycopg2.connect(database='d6f0n6kc34qjo7',user='ersdwrualbmqkz',password='2BhNndeKPkBdn7K3jfSvrou0M_',host='ec2-54-225-117-56.compute-1.amazonaws.com')
 	cursor_cid = con_bd.cursor()
 	cid = modificaciones.cid_(m)
 	vector_comprobar = []
 	vector_comprobar = "(" + str(cid) + ",)"
 		
-	vector_cc = sqlite3.Cursor
-	vector_cc = cursor_cid.execute("SELECT cid FROM usuarios")
+	vector_cc = con_bd.cursor()
+	vector_cc.execute("SELECT cid FROM usuarios")
+	rows = vector_cc.fetchall()
 	existe = False
-	for i in vector_cc:
+	for i in rows:
 		if existe != True:
 			if str(i) == vector_comprobar:		#Encontramos el cid en la bd 			
 				existe = True
@@ -153,12 +161,11 @@ def send_mercado(m):
 
 	if variable_aux == 0:
 		cadena_usuario_contrasenia = modificaciones.comprobar(m)
-	
 		if cadena_usuario_contrasenia != -1:
 			user = cadena_usuario_contrasenia[1]				#Insertamos cid, nombre y passwd en la BD
 			passwd = cadena_usuario_contrasenia[2]
 			reg = (cid, user, passwd)
-			cursor_cid.execute("INSERT INTO usuarios VALUES (?,?,?)", reg)
+			cursor_cid.execute("INSERT INTO usuarios VALUES (%s,%s,%s)", reg)
 			con_bd.commit()
 		else:
 			bot.send_message(cid, "Error, debe introducir 3 parámetros. Aún no esta registrado en la base de datos")
@@ -173,7 +180,7 @@ def send_mercado(m):
 		if hasattr(test, 'myid') != True:
 			valor = (cid, )
 			bot.send_message(cid, "Usuario o contraseña incorrecta. Vuelve a intentarlo")
-			cursor_cid.execute("DELETE FROM usuarios WHERE cid=?", valor)
+			cursor_cid.execute("DELETE FROM usuarios WHERE cid=%s", valor)
 			con_bd.commit()
 
 		else:
@@ -190,16 +197,18 @@ def send_mercado(m):
 
 @bot.message_handler(commands=['Ofertas', 'ofertas'])	
 def send_ofertas(m):
-	con_bd = sqlite3.connect('datos.db') #psycopg2.connect(database='test',user='postgres',password='pass', host='localhost')
+	#con_bd = sqlite3.connect('datos.db')
+	con_bd = psycopg2.connect(database='d6f0n6kc34qjo7',user='ersdwrualbmqkz',password='2BhNndeKPkBdn7K3jfSvrou0M_',host='ec2-54-225-117-56.compute-1.amazonaws.com')
 	cursor_cid = con_bd.cursor()
 	cid = modificaciones.cid_(m)
 	vector_comprobar = []
 	vector_comprobar = "(" + str(cid) + ",)"
 		
-	vector_cc = sqlite3.Cursor
-	vector_cc = cursor_cid.execute("SELECT cid FROM usuarios")
+	vector_cc = con_bd.cursor()
+	vector_cc.execute("SELECT cid FROM usuarios")
+	rows = vector_cc.fetchall()
 	existe = False
-	for i in vector_cc:
+	for i in rows:
 		if existe != True:
 			if str(i) == vector_comprobar:		#Encontramos el cid en la bd 			
 				existe = True
@@ -215,7 +224,7 @@ def send_ofertas(m):
 			user = cadena_usuario_contrasenia[1]				#Insertamos cid, nombre y passwd en la BD
 			passwd = cadena_usuario_contrasenia[2]
 			reg = (cid, user, passwd)
-			cursor_cid.execute("INSERT INTO usuarios VALUES (?,?,?)", reg)
+			cursor_cid.execute("INSERT INTO usuarios VALUES (%s,%s,%s)", reg)
 			con_bd.commit()
 		else:
 			bot.send_message(cid, "Error, debe introducir 3 parámetros. Aún no esta registrado en la base de datos")
@@ -230,7 +239,7 @@ def send_ofertas(m):
 		if hasattr(test, 'myid') != True:
 			valor = (cid, )
 			bot.send_message(cid, "Usuario o contraseña incorrecta. Vuelve a intentarlo")
-			cursor_cid.execute("DELETE FROM usuarios WHERE cid=?", valor)
+			cursor_cid.execute("DELETE FROM usuarios WHERE cid=%s", valor)
 			con_bd.commit()
 
 		else:
@@ -246,16 +255,18 @@ def send_ofertas(m):
 
 @bot.message_handler(commands=['Traspasos', 'traspasos'])	
 def send_traspasos(m):
-	con_bd = sqlite3.connect('datos.db') #psycopg2.connect(database='test',user='postgres',password='pass', host='localhost')
+	#con_bd = sqlite3.connect('datos.db')
+	con_bd = psycopg2.connect(database='d6f0n6kc34qjo7',user='ersdwrualbmqkz',password='2BhNndeKPkBdn7K3jfSvrou0M_',host='ec2-54-225-117-56.compute-1.amazonaws.com')
 	cursor_cid = con_bd.cursor()
 	cid = modificaciones.cid_(m)
 	vector_comprobar = []
 	vector_comprobar = "(" + str(cid) + ",)"
 		
-	vector_cc = sqlite3.Cursor
-	vector_cc = cursor_cid.execute("SELECT cid FROM usuarios")
+	vector_cc = con_bd.cursor()
+	vector_cc.execute("SELECT cid FROM usuarios")
+	rows = vector_cc.fetchall()
 	existe = False
-	for i in vector_cc:
+	for i in rows:
 		if existe != True:
 			if str(i) == vector_comprobar:		#Encontramos el cid en la bd 			
 				existe = True
@@ -271,7 +282,7 @@ def send_traspasos(m):
 			user = cadena_usuario_contrasenia[1]				#Insertamos cid, nombre y passwd en la BD
 			passwd = cadena_usuario_contrasenia[2]
 			reg = (cid, user, passwd)
-			cursor_cid.execute("INSERT INTO usuarios VALUES (?,?,?)", reg)
+			cursor_cid.execute("INSERT INTO usuarios VALUES (%s,%s,%s)", reg)
 			con_bd.commit()
 		else:
 			bot.send_message(cid, "Error, debe introducir 3 parámetros. Aún no esta registrado en la base de datos")
@@ -286,7 +297,7 @@ def send_traspasos(m):
 		if hasattr(test, 'myid') != True:
 			valor = (cid, )
 			bot.send_message(cid, "Usuario o contraseña incorrecta. Vuelve a intentarlo")
-			cursor_cid.execute("DELETE FROM usuarios WHERE cid=?", valor)
+			cursor_cid.execute("DELETE FROM usuarios WHERE cid=%s", valor)
 			con_bd.commit()
 
 		else:

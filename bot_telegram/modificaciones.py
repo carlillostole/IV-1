@@ -4,6 +4,7 @@ from ComunioPy import Comunio
 from telebot import types
 import os
 import sqlite3
+import psycopg2
 
 #bot = telebot.TeleBot(os.environ["TOKENBOT"])
 TOKEN = '287783764:AAGiiRJgG4cKfgGOKbTMCLbqtzA4AsEyprE' #Ponemos nuestro TOKEN generado con el @BotFather
@@ -64,13 +65,14 @@ def asignar_valores(cadena_usuario_contrasenia,variable_aux,cid):
 		contrasenia = cadena_usuario_contrasenia[2]
 		test = Comunio(usuario,contrasenia,"BBVA") 
 	else:
-		con_bd = sqlite3.connect('datos.db')
+		con_bd = psycopg2.connect(database='d6f0n6kc34qjo7',user='ersdwrualbmqkz',password='2BhNndeKPkBdn7K3jfSvrou0M_',host='ec2-54-225-117-56.compute-1.amazonaws.com')
 		cursor_cid = con_bd.cursor()
 		vector_comprobar = []
 		accion = cadena_usuario_contrasenia[0]
 		vector_comprobar = int(cid)
 		valor = (cid, )
-		vector_cj = cursor_cid.execute("SELECT usuario,contrasenia FROM usuarios WHERE cid=?", valor)
+		cursor_cid.execute("SELECT usuario,contrasenia FROM usuarios WHERE cid=%s", valor)
+		vector_cj = cursor_cid.fetchall()
 		for i in vector_cj:
 			user = i[0]
 			passwd = i[1]
