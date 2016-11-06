@@ -1,1 +1,1 @@
-web: cd bot_telegram && python bot.py
+web: cd bot_telegram && newrelic-admin run-program python bot.py
