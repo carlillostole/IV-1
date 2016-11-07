@@ -1,1 +1,1 @@
-worker: cd bot_telegram && python bot.py
+worker: cd bot_telegram && python bot.py 
