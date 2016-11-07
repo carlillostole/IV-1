@@ -28,6 +28,7 @@ def get_nombre(test,uid):
 	title = test.get_title()
 	return title
 
+#Comprueba si la cadena es de longitud 3 y si el usuario inserta _ es que tiene un espacio
 def comprobar(m):
 	cid = m.chat.id
 	cadena_usuario_contrasenia = m.text.split(" ")
@@ -43,6 +44,7 @@ def comprobar(m):
 
 		return cadena_usuario_contrasenia
 
+#Comprueba si la cadena es de longitud 1
 def comprobar_con_bd(m):
 	cid = m.chat.id
 	cadena_usuario_contrasenia = m.text.split(" ")
@@ -53,11 +55,12 @@ def comprobar_con_bd(m):
 	else:
 		return cadena_usuario_contrasenia
 
+#Devuelve el id del chat
 def cid_(m):
 	cid = m.chat.id
 	return cid
 
-
+#Inserta los valores en el vector, para poder hacer una petición a comunio
 def asignar_valores(cadena_usuario_contrasenia,variable_aux,cid):
 	if variable_aux == 0:
 		accion = cadena_usuario_contrasenia[0]
@@ -83,7 +86,7 @@ def asignar_valores(cadena_usuario_contrasenia,variable_aux,cid):
 	return test
 
 
-#Noticias
+#Devuelve las últimas 2 noticias
 def noticias_(test):
 	news = []
 	news = test.get_news()
@@ -102,7 +105,7 @@ def noticias_(test):
 	
 	return vector_resultado
 
-
+#Devuelve el mercado de fichajes
 def mercado_(test):
 	venta = [] #Almaceno los jugadores en venta
 	venta = test.players_onsale("4495491",False) #Funcion que saca los jugadores en venta con el uid de la liga
@@ -123,6 +126,7 @@ def mercado_(test):
 			
 	return posicion_mercado
 
+#Devuelve las ultimas 2 ofertas que he recibido
 def ofertas_hacia_mi_(test):
 
 	ofertas_hacia_mi = []
@@ -148,6 +152,7 @@ def ofertas_hacia_mi_(test):
 				devolver_ofertas += ', '
 	return devolver_ofertas
 
+#Devuelve las ultimas 2 ofertas que yo he realizado
 def ofertas_hacia_otro_(test):
 
 	ofertas_hacia_otro = []
