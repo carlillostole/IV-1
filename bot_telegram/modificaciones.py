@@ -5,9 +5,10 @@ from telebot import types
 import os
 import sqlite3
 import psycopg2
+from conf import TOKEN
 
 #bot = telebot.TeleBot(os.environ["TOKENBOT"])
-TOKEN = '287783764:AAGiiRJgG4cKfgGOKbTMCLbqtzA4AsEyprE' #Ponemos nuestro TOKEN generado con el @BotFather
+
 bot = telebot.TeleBot(TOKEN)
 
 #Alineacion
