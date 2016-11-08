@@ -5,11 +5,10 @@ from telebot import types
 import os
 import sqlite3
 import psycopg2
-from conf import TOKEN
 
-#bot = telebot.TeleBot(os.environ["TOKENBOT"])
+bot = telebot.TeleBot(os.environ["TOKENBOT"])
 
-bot = telebot.TeleBot(TOKEN)
+#bot = telebot.TeleBot(TOKEN)
 
 #Alineacion
 def alineacion_(test,uid):

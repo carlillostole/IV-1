@@ -6,11 +6,10 @@ import os
 import sqlite3
 import modificaciones
 import psycopg2
-from conf import TOKEN
 
-#bot = telebot.TeleBot(os.environ["TOKENBOT"])
+bot = telebot.TeleBot(os.environ["TOKENBOT"])
 
-bot = telebot.TeleBot(TOKEN)
+#bot = telebot.TeleBot(TOKEN)
 
 # Handle '/start' and '/help'
 @bot.message_handler(commands=['help', 'start'])
