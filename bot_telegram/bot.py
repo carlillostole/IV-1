@@ -9,6 +9,9 @@ import psycopg2
 
 bot = telebot.TeleBot(os.environ["TOKENBOT"])
 
+usr_bd = telebot.TeleBot(os.environ["USR_BD"])
+pass_bd = telebot.TeleBot(os.environ["PASS_BD"])
+
 #bot = telebot.TeleBot(TOKEN)
 
 # Handle '/start' and '/help'
@@ -17,7 +20,7 @@ def send_welcome(message):
 	cid = message.chat.id # Guardamos el ID de la conversacion para poder responder.
 	bot.send_message(cid, "Introduzca acción que desea realizar, usuario de comunio y contraseña\nAcciones: \n1. /Alineacion: Devuelve la alineación con la que se jugó la última jornada\n2. /Noticias: Devuelve las dos últimas noticias\n3. /Mercado: Devuelve el mercado de fichajes de la comunidad\n4. /Ofertas: Devuelve las ofertas que me han hecho\n5. /Traspasos: Devuelve las ofertas que yo he hecho\n\nEjemplo: /Alineacion,usuario,contraseña \n\nUna vez que introduzca sus datos correctamente, solo debera introducir la acción deseada")
 	#con_bd = sqlite3.connect('datos.db')#psycopg2.connect(database='test',user='postgres',password='pass', host='localhost')
-	con_bd = psycopg2.connect(database='d6f0n6kc34qjo7',user='ersdwrualbmqkz',password='2BhNndeKPkBdn7K3jfSvrou0M_',host='ec2-54-225-117-56.compute-1.amazonaws.com')	
+	con_bd = psycopg2.connect(database='d6f0n6kc34qjo7',user=usr_bd,password=pass_bd,host='ec2-54-225-117-56.compute-1.amazonaws.com')	
 	cursor_cid = con_bd.cursor()
 
 	valor = (cid, )
