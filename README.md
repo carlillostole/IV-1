@@ -127,7 +127,7 @@ Ahi podemos ver que nuestro bot está lanzado y funcionando.
 
 En definitiva, hemos visto como configurar el despliegue en Heroku, usar la base de datos que Heroku nos proporciona como es PostgreSQL y los diferentes archivos de configuración que necesitamos para que la aplicación funcione correctamente. 
 
-Podremos probar nuestra aplicación hablando al bot por el nombre de **@Comuni_bot**. Veamos simplemente un /start para ver que nos responde:
+Podremos probar nuestra aplicación hablando al bot por el nombre de **@Comuni_bot**. Veamos simplemente un /start para ver que nos responde(podemos ver las diferentes funcionalidades en el fichero bot.py):
 
 ![Imagen 8](http://i66.tinypic.com/r0nq50.jpg)
 
