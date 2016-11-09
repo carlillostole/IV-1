@@ -33,7 +33,7 @@ def send_welcome(message):
 @bot.message_handler(commands=['Alineacion', 'alineacion'])
 def send_alineacion(m):
 	#con_bd = sqlite3.connect('datos.db')
-	con_bd = psycopg2.connect(database='d6f0n6kc34qjo7',user='ersdwrualbmqkz',password='2BhNndeKPkBdn7K3jfSvrou0M_',host='ec2-54-225-117-56.compute-1.amazonaws.com')
+	con_bd = psycopg2.connect(database='d6f0n6kc34qjo7',user=usr_bd,password=pass_bd,host='ec2-54-225-117-56.compute-1.amazonaws.com')
 	cursor_cid = con_bd.cursor()
 	cid = modificaciones.cid_(m)
 	vector_comprobar = []
@@ -88,7 +88,7 @@ def send_alineacion(m):
 @bot.message_handler(commands=['Noticias', 'noticias'])
 def send_noticias(m):
 	#con_bd = sqlite3.connect('datos.db') #psycopg2.connect(database='test',user='postgres',password='pass', host='localhost')
-	con_bd = psycopg2.connect(database='d6f0n6kc34qjo7',user='ersdwrualbmqkz',password='2BhNndeKPkBdn7K3jfSvrou0M_',host='ec2-54-225-117-56.compute-1.amazonaws.com')
+	con_bd = psycopg2.connect(database='d6f0n6kc34qjo7',user=usr_bd,password=pass_bd,host='ec2-54-225-117-56.compute-1.amazonaws.com')
 	cursor_cid = con_bd.cursor()
 	cid = modificaciones.cid_(m)
 	vector_comprobar = []
@@ -142,7 +142,7 @@ def send_noticias(m):
 @bot.message_handler(commands=['Mercado', 'mercado'])
 def send_mercado(m):
 	#con_bd = sqlite3.connect('datos.db') 
-	con_bd = psycopg2.connect(database='d6f0n6kc34qjo7',user='ersdwrualbmqkz',password='2BhNndeKPkBdn7K3jfSvrou0M_',host='ec2-54-225-117-56.compute-1.amazonaws.com')
+	con_bd = psycopg2.connect(database='d6f0n6kc34qjo7',user=usr_bd,password=pass_bd,host='ec2-54-225-117-56.compute-1.amazonaws.com')
 	cursor_cid = con_bd.cursor()
 	cid = modificaciones.cid_(m)
 	vector_comprobar = []
@@ -200,7 +200,7 @@ def send_mercado(m):
 @bot.message_handler(commands=['Ofertas', 'ofertas'])	
 def send_ofertas(m):
 	#con_bd = sqlite3.connect('datos.db')
-	con_bd = psycopg2.connect(database='d6f0n6kc34qjo7',user='ersdwrualbmqkz',password='2BhNndeKPkBdn7K3jfSvrou0M_',host='ec2-54-225-117-56.compute-1.amazonaws.com')
+	con_bd = psycopg2.connect(database='d6f0n6kc34qjo7',user=usr_bd,password=pass_bd,host='ec2-54-225-117-56.compute-1.amazonaws.com')
 	cursor_cid = con_bd.cursor()
 	cid = modificaciones.cid_(m)
 	vector_comprobar = []
@@ -258,7 +258,7 @@ def send_ofertas(m):
 @bot.message_handler(commands=['Traspasos', 'traspasos'])	
 def send_traspasos(m):
 	#con_bd = sqlite3.connect('datos.db')
-	con_bd = psycopg2.connect(database='d6f0n6kc34qjo7',user='ersdwrualbmqkz',password='2BhNndeKPkBdn7K3jfSvrou0M_',host='ec2-54-225-117-56.compute-1.amazonaws.com')
+	con_bd = psycopg2.connect(database='d6f0n6kc34qjo7',user=usr_bd,password=pass_bd,host='ec2-54-225-117-56.compute-1.amazonaws.com')
 	cursor_cid = con_bd.cursor()
 	cid = modificaciones.cid_(m)
 	vector_comprobar = []
