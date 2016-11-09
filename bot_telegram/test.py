@@ -7,6 +7,7 @@ import sqlite3
 from info_test import *
 import modificaciones
 import psycopg2
+import os
 
 usr_bd = (os.environ["USR_BD"])
 pass_bd = (os.environ["PASS_BD"])
