@@ -8,10 +8,13 @@ from info_test import *
 import modificaciones
 import psycopg2
 
+usr_bd = (os.environ["USR_BD"])
+pass_bd = (os.environ["PASS_BD"])
+
 test = Comunio("bot_iv","12345678",'BBVA') 
 class Test(unittest.TestCase):
 	def test_bd(self):
-        	conectar = psycopg2.connect(database='d6f0n6kc34qjo7',user='ersdwrualbmqkz',password='2BhNndeKPkBdn7K3jfSvrou0M_',host='ec2-54-225-117-56.compute-1.amazonaws.com')
+        	conectar = psycopg2.connect(database='d6f0n6kc34qjo7',user=(os.environ["USR_BD"]),password=(os.environ["PASS_BD"]),host='ec2-54-225-117-56.compute-1.amazonaws.com')
 		with conectar:
 			cur = conectar.cursor()
 			cur.execute("INSERT INTO usuarios VALUES ('3','testeando','12345678')")

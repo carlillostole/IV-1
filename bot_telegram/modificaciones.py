@@ -8,9 +8,6 @@ import psycopg2
 
 bot = telebot.TeleBot(os.environ["TOKENBOT"])
 
-usr_bd = telebot.TeleBot(os.environ["USR_BD"])
-pass_bd = telebot.TeleBot(os.environ["PASS_BD"])
-
 #bot = telebot.TeleBot(TOKEN)
 
 #Alineacion
@@ -71,7 +68,7 @@ def asignar_valores(cadena_usuario_contrasenia,variable_aux,cid):
 		contrasenia = cadena_usuario_contrasenia[2]
 		test = Comunio(usuario,contrasenia,"BBVA") 
 	else:
-		con_bd = psycopg2.connect(database='d6f0n6kc34qjo7',user=usr_bd,password=pass_bd,host='ec2-54-225-117-56.compute-1.amazonaws.com')
+		con_bd = psycopg2.connect(database='d6f0n6kc34qjo7',user=(os.environ["USR_BD"]),password=(os.environ["PASS_BD"]),host='ec2-54-225-117-56.compute-1.amazonaws.com')
 		cursor_cid = con_bd.cursor()
 		vector_comprobar = []
 		accion = cadena_usuario_contrasenia[0]
