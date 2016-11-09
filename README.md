@@ -1,6 +1,8 @@
 ##Bot Telegram Comuni_bot
 
 [![Build Status](https://travis-ci.org/sergiocaceres/IV.svg?branch=master)](https://travis-ci.org/sergiocaceres/IV)
+
+[![Build Status](https://snap-ci.com/sergiocaceres/IV/branch/master/build_image)](https://snap-ci.com/sergiocaceres/IV/branch/master)  
 ####Proyecto elegido y breve descripción
 
 Para el proyecto de esta asignatura he decidido realizar un bot de Telegram. Con este bot se pretende resolver el problema de los jugadores de Comunio(una página web en la que se juegan ligas internas en la que existen una serie de puntuaciones para cada jugador según haya jugado en dicha jornada de liga) en la que se podrá consultar el mercado de fichajes, la alineación que tiene para esa jornada y muchas más opciones que se irán indicando en hitos posteriores.
@@ -132,3 +134,7 @@ Podremos probar nuestra aplicación hablando al bot por el nombre de **@Comuni_b
 ![Imagen 8](http://i66.tinypic.com/r0nq50.jpg)
 
 Por tanto, podemos ver que el despliegue está bien hecho y que nuestra aplicación esta funcionando.
+
+También he realizado test usando Snap-Ci. Heroku desplegará la aplicación automaticamente si dicho test se ha pasado correctamente. Podemos ver el resultado en la siguiente imagen(aparte del botón de la build)
+
+![Imagen 9](http://i63.tinypic.com/15o75so.png)
