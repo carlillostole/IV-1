@@ -114,14 +114,14 @@ python-2.7.12
 
 Una vez que tengamos nuestros ficheros de forma correcta, nos disponemos a subirlo a Heroku. Para ello simplemente nos creamos una nuesva aplicación, le damos el nombre que queramos y configuramos su despliegue como expliqué anteriormente, sincronizado con GitHub.
 
-Para acceder a la base de datos y ahi poder crear las tablas que deseemos, tenemos que poner la orden 
+Podemos acceder a las características de nuestra base de datos(que se encuentra en la página de Heroku), y copiar la url que aparece en Heroku CLI en nuestra terminal. 
+
+Para poder ver los logs desde la terminal tenemos que poner la orden
 
 ```
 heroku logs --tail --ps postgres --app <nombre_app>
 ```
-o, podemos acceder a las características de nuestra base de datos(que se encuentra en la página de Heroku), y copiar la url que aparece en Heroku CLI en nuestra terminal. 
-
-Una vez que tenemos el bot listo, solo falta comprobar que está lanzado y ejecutándose. Lo vemos en los logs:
+o, como se puede ver en la siguiente imagen, mediante la web de Heroku. Podemos ver que el bot está funcionando correctamente
 
 ![Imagen 7](http://i67.tinypic.com/35brp7b.png)
 
