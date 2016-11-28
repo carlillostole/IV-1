@@ -1,9 +1,12 @@
-##Bot Telegram Comuni_bot
+## Bot Telegram Comuni_bot
 
 [![Build Status](https://travis-ci.org/sergiocaceres/IV.svg?branch=master)](https://travis-ci.org/sergiocaceres/IV)
 
 [![Build Status](https://snap-ci.com/sergiocaceres/IV/branch/master/build_image)](https://snap-ci.com/sergiocaceres/IV/branch/master)  
-####Proyecto elegido y breve descripción
+
+[![Docker](https://camo.githubusercontent.com/8a4737bc02fcfeb36a2d7cfb9d3e886e9baf37ad/687474703a2f2f693632382e70686f746f6275636b65742e636f6d2f616c62756d732f7575362f726f6d696c67696c646f2f646f636b657269636f6e5f7a7073776a3369667772772e706e67)](https://hub.docker.com/r/sergiocaceres/iv/)
+
+#### Proyecto elegido y breve descripción
 
 Para el proyecto de esta asignatura he decidido realizar un bot de Telegram. Con este bot se pretende resolver el problema de los jugadores de Comunio(una página web en la que se juegan ligas internas en la que existen una serie de puntuaciones para cada jugador según haya jugado en dicha jornada de liga) en la que se podrá consultar el mercado de fichajes, la alineación que tiene para esa jornada y muchas más opciones que se irán indicando en hitos posteriores.
 
@@ -25,7 +28,7 @@ Usaremos TravisCI para realizar test continuos
 
 Automatizaremos tareas, realizaremos despliegue continuo,.. pero esto se irán explicando en los siguientes hitos.
 
-####Integración continua
+#### Integración continua
 
 En este hito hemos visto como añadir integración continua a nuestro proyecto.
 
@@ -77,7 +80,7 @@ También le hemos dicho a travis que tenemos una variable de entorno y que quere
 ![Imagen 5](http://i64.tinypic.com/rkos42.png)
 
 
-####Despliegue en un PaaS
+#### Despliegue en un PaaS
 
 Para este hito he decidido realizar el despliegue en Heroku. Para ello, nos hemos tenido que registrar en la web y a partir de ahi crear una aplicación con una base de datos. La base de datos que he usado ha sido la propia de Heroku (PostgreSQL) y que está alojada en AmazonAWS. Para acceder a dicha base de datos realizamos lo siguiente (en el código de nuestro botesta hecho):
 
