@@ -15,9 +15,10 @@ RUN sudo apt-get -y install python-dev
 RUN sudo apt-get -y install build-essential
 RUN sudo apt-get -y install python-psycopg2
 RUN sudo apt-get -y install libpq-dev
-RUN sudo apt-get install libffi-dev libssl-dev
+#RUN sudo apt-get install libffi-dev libssl-dev
 RUN sudo easy_install pip
 RUN sudo pip install --upgrade pip
+RUN sudo pip install pyopenssl ndg-httpsclient pyasn1
 
 #Instalamos los requerimientos necesarios
 RUN cd IV/ && make install
