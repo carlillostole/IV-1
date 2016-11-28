@@ -25,5 +25,5 @@ ENV TOKENBOT="287783764:AAGiiRJgG4cKfgGOKbTMCLbqtzA4AsEyprE"
 ENV PASS_BD="2BhNndeKPkBdn7K3jfSvrou0M_"
 ENV USR_BD="ersdwrualbmqkz"
 
-CMD cd IV/ && make execute
+#CMD cd IV/ && make execute
 
