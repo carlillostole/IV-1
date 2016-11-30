@@ -193,3 +193,33 @@ En definitiva, hemos visto como configurar el despliegue en Heroku, usar la base
 Podremos probar nuestra aplicación hablando al bot por el nombre de **@Comuni_bot**. Veamos simplemente un /start para ver que nos responde:
 
 ![Imagen 8](http://i66.tinypic.com/r0nq50.jpg)
+
+
+##Cuarto hito: Entorno de pruebas
+
+###Prerequisitos
+
+- [x] Haber alcanzado el 70% de los objetivos de las sesiones hasta este hito. En el caso de que no se haya hecho, no se calificará este hito del proyecto.
+
+- [x] Haber superado el hito anterior.
+
+Para ver como sincronizar DockerHub con nuestro GitHub es bastante simple. Antes de nada hay que crearse una cuenta en dockerhub.
+
+![Imagen 9](http://i67.tinypic.com/2ytrx1z.png)
+
+Una vez creado iniciamos sesión y vamos a la pestaña Settings -> Linked Accounts & Services
+
+![Imagen 10](http://i63.tinypic.com/2r7yiw0.png)
+
+Una vez ahí, tenemos que enlazar nuestro GitHub (vemos que yo ya lo tengo asociado)
+
+![Imagen 11](http://i65.tinypic.com/2uj7gcp.png)
+
+Si no lo tenemos aún asociado, tenemos que clickar sobre dicha opción, pulsaremos sobre Create y elegimos la opción Create Automated Build. Nos da la opción de crearla mediante GitHub y deberemos elegir el repositorio de nuestro proyecto. 
+
+Se puede ver como la construcción se realiza cada vez que se haga un push en la rama master
+![Imagen 12](http://i65.tinypic.com/34osj95.png)
+
+![Imagen 13](http://i67.tinypic.com/sosb9h.png)
+
+Con estos pasos ya tendriamos asociado nuestro GitHub a nuestro contenedor Docker. Realizariamos un docker pull sergiocaceres/iv y ya lo tendriamos descargado, aun que en mi caso he realizado un [script]((https://github.com/sergiocaceres/IV/blob/master/docker.sh) para que solo sea necesario ejecutar dicho script. 
