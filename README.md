@@ -222,4 +222,12 @@ Se puede ver como la construcción se realiza cada vez que se haga un push en la
 
 ![Imagen 13](http://i67.tinypic.com/sosb9h.png)
 
-Con estos pasos ya tendriamos asociado nuestro GitHub a nuestro contenedor Docker. Realizariamos un docker pull sergiocaceres/iv y ya lo tendriamos descargado, aun que en mi caso he realizado un [script](https://github.com/sergiocaceres/IV/blob/master/docker.sh) para que solo sea necesario ejecutar dicho script. 
+Con estos pasos ya tendriamos asociado nuestro GitHub a nuestro contenedor Docker. Realizariamos un sudo docker pull sergiocaceres/iv y ya lo tendriamos descargado, tan solo habría que hacer lo siguiente:
+
+####Probando docker
+
+Una vez hayamos realizado la orden "sudo docker pull sergiocaceres/iv" tendremos que lanzar el contenedor. Para ello tenemos que asignarle valor a las variables de entorno declaradas, pero que por motivos de seguridad se ve borrado en la siguiente imagen. Tras realizar esa orden ejecutamos ```cd IV/ && make execute ``` y ya lanzará el bot
+
+![Imagen 14](http://i63.tinypic.com/znv3w0.png)
+
+Podemos ver como funciona correctamente y el bot está funcionando
