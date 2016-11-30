@@ -1,6 +1,14 @@
 FROM ubuntu:14.04
 MAINTAINER Sergio Cáceres Pintor <sergiocaceres@correo.ugr.es>
 
+ARG TOKENBOT
+ARG PASS_BD
+ARG USR_BD
+ENV TOKENBOT=$TOKENBOT
+ENV PASS_BD=$PASS_BD
+ENV USR_BD=$USR_BD
+
+
 #Instalamos git
 RUN sudo apt-get -y update
 RUN sudo apt-get install -y git
@@ -23,9 +31,4 @@ RUN sudo pip install pyopenssl ndg-httpsclient pyasn1
 #Instalamos los requerimientos necesarios
 RUN cd IV/ && make install
 
-ENV TOKENBOT="287783764:AAGiiRJgG4cKfgGOKbTMCLbqtzA4AsEyprE"
-ENV PASS_BD="2BhNndeKPkBdn7K3jfSvrou0M_"
-ENV USR_BD="ersdwrualbmqkz"
-
-#CMD cd IV/ && make execute
 
