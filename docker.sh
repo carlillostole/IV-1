@@ -1,4 +1,4 @@
-#!bin/bash
+#!/bin/bash
 
 #Descargar la imagen
 sudo docker pull sergiocaceres/iv
