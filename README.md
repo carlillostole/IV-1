@@ -153,8 +153,10 @@ Para generar la imagen con el bot y sus dependencias instaladas usamos el ficher
 
 Le indicamos la imagen que vamos a usar, que es la de Ubuntu oficial, que actualice los repositorios, que instale los paquetes necesarios de Python y que se descargue el repositorio de IV en el que tenemos todas las funcionalidades del bot. También se instalarán los requirements y todo lo necesario para generar el contenedor. 
 
-Una vez acabado, ejecutaremos la siguiente orden para lanzar el contenedor: 
+Ejecutaremos las siguientes ordenes para descargarnos y lanzar el contenedor: 
 ```
+sudo docker pull sergiocaceres/iv
+
 sudo docker run -e "TOKENBOT=-----" -e "PASS_BD=----" -e "USR_BD=----" -i -t sergiocaceres/iv /bin/bash
 ```
 Como se puede observar, las variables de entorno tienen un valor, pero por cuestiones de privacidad no las he mostrado.
