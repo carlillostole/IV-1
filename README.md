@@ -141,3 +141,18 @@ Por tanto, podemos ver que el despliegue está bien hecho y que nuestra aplicaci
 También he realizado test usando Snap-Ci. Heroku desplegará la aplicación automaticamente si dicho test se ha pasado correctamente. Podemos ver el resultado en la siguiente imagen(aparte del botón de la build)
 
 ![Imagen 9](http://i63.tinypic.com/15o75so.png)
+
+
+#### Entorno de pruebas
+
+Para el entorno de pruebas he usado Docker.Para ello, he generado una imagen que se encuentra disponible en [DockerHub](https://hub.docker.com/r/sergiocaceres/iv/). 
+
+Para generar la imagen con el bot y sus dependencias instaladas usamos el fichero [Dockerfile](https://github.com/sergiocaceres/IV/blob/master/Dockerfile). En dicho fichero se especifican las acciones que se van a realizar para preparar la imagen. 
+
+Le indicamos la imagen que vamos a usar, que es la de Ubuntu oficial, que actualice los repositorios, que instale los paquetes necesarios de Python y que se descargue el repositorio de IV en el que tenemos todas las funcionalidades del bot. También se instalarán los requirements y todo lo necesario para generar el contenedor. 
+
+He creado un fichero [docker.sh](https://github.com/sergiocaceres/IV/blob/master/docker.sh) que nos descarga docker(por si no lo tenemos descargado), nos inicia el servicio, descarga la imagen que se encuentra en DockerHub y la ejecuta.
+
+Una vez ejecutada, debemos añadir ```cd IV``` y a continuación ```make execute. ``` y el bot ya empezará a funcionar.
+
+Para ver la sincronización de DockerHub con GitHub ver [aquí](https://github.com/sergiocaceres/IV/blob/Documentacion/README.md#cuarto-hito-entorno-de-pruebas)
