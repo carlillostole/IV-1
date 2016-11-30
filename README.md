@@ -222,4 +222,4 @@ Se puede ver como la construcción se realiza cada vez que se haga un push en la
 
 ![Imagen 13](http://i67.tinypic.com/sosb9h.png)
 
-Con estos pasos ya tendriamos asociado nuestro GitHub a nuestro contenedor Docker. Realizariamos un docker pull sergiocaceres/iv y ya lo tendriamos descargado, aun que en mi caso he realizado un [script]((https://github.com/sergiocaceres/IV/blob/master/docker.sh) para que solo sea necesario ejecutar dicho script. 
+Con estos pasos ya tendriamos asociado nuestro GitHub a nuestro contenedor Docker. Realizariamos un docker pull sergiocaceres/iv y ya lo tendriamos descargado, aun que en mi caso he realizado un [script](https://github.com/sergiocaceres/IV/blob/master/docker.sh) para que solo sea necesario ejecutar dicho script. 
