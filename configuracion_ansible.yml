@@ -1,7 +1,10 @@
----
 - hosts: default
   remote_user: sergio
   sudo: yes
+  vars:
+	TOKENBOT: "{{ lookup('env','TOKENBOT') }}"
+	USR_BD: "{{ lookup('env','USR_BD') }}"
+	PASS_BD: "{{ lookup('env','PASS_BD') }}"
   tasks:
   - name: Update
     command: apt-get update
@@ -22,7 +25,7 @@
   - name: Clone 
     shell: rm -rf IV && git clone https://github.com/sergiocaceres/IV
   - name: Actualizar pip
-    command: pip install -U pip
+    command: sudo pip install -U pip
     command: sudo apt-get install python-dev
   - name: Instalar requirements
     command: sudo pip install -r IV/requirements.txt
