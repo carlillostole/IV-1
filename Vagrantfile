@@ -25,14 +25,14 @@ Vagrant.configure("2") do |config|
     		config.vm.box_url = "https://github.com/msopentech/vagrant-azure/raw/master/dummy.box"
 
 		azure.vm_user = "sergio" # defaults to 'vagrant' if not provided
-    		azure.vm_password = "Abecedario1234"
+    		azure.vm_password = "Abecedario1234#"
 		azure.vm_location = "Central US"
 		azure.tcp_endpoints = '80:80'
 		azure.ssh_port = "22"
   	end
 	config.vm.synced_folder ".", "/vagrant",disabled: true
 	config.ssh.username = 'sergio'
-	config.ssh.password = 'Abecedario1234'
+	config.ssh.password = 'Abecedario1234#'
 
 	config.vm.provision "ansible" do |ansible|
 		ansible.raw_arguments=["-vvvv"]
