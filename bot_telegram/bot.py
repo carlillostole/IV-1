@@ -310,6 +310,6 @@ def send_traspasos(m):
 
 #bot.set_update_listener(listener) # Así, le decimos al bot que utilice como función escuchadora nuestra función 'listener' declarada arriba.
 
-bot.polling() # Con esto, le decimos al bot que siga funcionando incluso si encuentra algún fallo.
+bot.polling(none_stop=True) # Con esto, le decimos al bot que siga funcionando incluso si encuentra algún fallo.
 
 
