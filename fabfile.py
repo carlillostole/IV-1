@@ -20,3 +20,7 @@ def recargar():
 def iniciar():
     with shell_env(TOKENBOT=os.environ['TOKENBOT'], USR_BD=os.environ['USR_BD'], PASS_BD=os.environ['PASS_BD']):
         run('sudo supervisorctl start comuni_bot')
+
+def iniciar_no_supervisor():
+    with shell_env(TOKENBOT=os.environ['TOKENBOT'], USR_BD=os.environ['USR_BD'], PASS_BD=os.environ['PASS_BD']):
+        run('cd IV && make execute')
