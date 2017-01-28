@@ -1,10 +1,24 @@
 ## Bot Telegram Comuni_bot
 
 [![Build Status](https://travis-ci.org/sergiocaceres/IV.svg?branch=master)](https://travis-ci.org/sergiocaceres/IV)
-
-[![Build Status](https://snap-ci.com/sergiocaceres/IV/branch/master/build_image)](https://snap-ci.com/sergiocaceres/IV/branch/master)  
-
+[![Build Status](https://snap-ci.com/sergiocaceres/IV/branch/master/build_image)](https://snap-ci.com/sergiocaceres/IV/branch/master)
+[![Heroku Deploy](https://www.herokucdn.com/deploy/button.svg)](https://ivproyecto.herokuapp.com/)
 [![Docker](https://camo.githubusercontent.com/8a4737bc02fcfeb36a2d7cfb9d3e886e9baf37ad/687474703a2f2f693632382e70686f746f6275636b65742e636f6d2f616c62756d732f7575362f726f6d696c67696c646f2f646f636b657269636f6e5f7a7073776a3369667772772e706e67)](https://hub.docker.com/r/sergiocaceres/iv/)
+[![Azure](http://azuredeploy.net/deploybutton.png)](http://comunibot.cloudapp.net/)
+
+
+Comunibot			[![Telegram.me](http://lelb.net/wp-content/uploads/2016/01/telegram-icon-e1453881760594.png)](https://telegram.me/comuni_bot)
+
+
+##Índice
+
+1. [Proyecto elegido y breve descripción](#proyecto-elegido-y-breve-descripción)
+2. [Servicios necesarios](#servicios-necesarios)
+3. [Integración continua](#integración-continua)
+4. [Despliegue en un PaaS](#despliegue-en-un-paas)
+5. [Entorno de pruebas](#entorno-de-pruebas)
+6. [Despliegue en IaaS ](#despliegue-en-un-iaaS)
+
 
 #### Proyecto elegido y breve descripción
 
@@ -164,3 +178,22 @@ Como se puede observar, las variables de entorno tienen un valor, pero por cuest
 Una vez dentro del contenedor, debemos ejecutar ```cd IV/ && make execute ``` y el bot ya empezará a funcionar.
 
 Podremos ver un ejemplo de su ejecución [aquí](https://github.com/sergiocaceres/IV/blob/Documentacion/README.md#probando-docker)
+
+
+#### Despliegue en un IaaS
+
+La aplicación con la que he venido trabajando se ha desplegado en Azure. He empleado [Vagrant](https://www.vagrantup.com) como herramienta para la creación de la máquina virtual en la cual se alojará nuestra aplicación, en mi caso el bot de Telegram. También contendrá [Ansible](https://www.ansible.com/) para el aprovisionamiento y [Fabric](http://www.fabfile.org/) para instalar y poner el bot en ejecución. 
+
+Todos los ficheros nombrados anteriormente son los siguientes: [Vagranfile](https://github.com/sergiocaceres/IV/blob/master/Vagrantfile) para crear la máquina virtual, [playbook de Ansible](https://github.com/sergiocaceres/IV/blob/master/configuracion_ansible.yml) para el aprovisionamiento, el fichero [fabfile](https://github.com/sergiocaceres/IV/blob/master/fabfile.py) para acceder remotamente y, por último, el fichero [comuni_bot.conf](https://github.com/sergiocaceres/IV/blob/master/comuni_bot.conf) para lanzar el bot con supervisor y se mantenga en uso aunque se cierre la terminal.
+Para crear la máquina virtual usaremos la siguiente orden:
+```
+sudo vagrant up --provider=azure
+```
+Una vez está instalada y lanzada la máquina virtual, ejecutaremos el bot usando Fabric con la orden:
+```
+fab -H nombremaquina@nombreDNSmv funcion
+```
+
+Con esto nuestro bot ya estaría funcionando perfectamente y listo para poder hablarle.
+
+Para encontrar más información del despliegue, pulsar [aquí](https://github.com/sergiocaceres/IV/tree/Documentacion#quinto-hito-diseño-del-soporte-virtual-para-el-despliegue-de-una-aplicación)
