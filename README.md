@@ -17,7 +17,7 @@ Comunibot			[![Telegram.me](http://lelb.net/wp-content/uploads/2016/01/telegram-
 3. [Integración continua](#integración-continua)
 4. [Despliegue en un PaaS](#despliegue-en-un-paas)
 5. [Entorno de pruebas](#entorno-de-pruebas)
-6. [Despliegue en IaaS ](#despliegue-en-un-iaaS)
+6. [Despliegue en IaaS ](#despliegue-en-un-iaas)
 
 
 #### Proyecto elegido y breve descripción
