@@ -266,7 +266,7 @@ chmod 600 azure.pem
 
 Una vez generado el certificado, tendremos que insertarlo en la página web de Azure. Para ello, nos vamos al portal antiguo de [Azure](https://manage.windowsazure.com/). Una vez estemos logueados tendremos que irnos al apartado Configuración -> Certificados y Administración -> Cargamos el fichero llamado .cer. Vemos en la siguiente imagen como nos debería quedar.
 
-![Imagen 1](http://i67.tinypic.com/2pocrdd.png)
+![Imagen 1](http://i63.tinypic.com/syurfp.png)
 
 Una vez hecho esto, ya podremos realizar el fichero Vagrantfile. Para ello, primero debemos ejecutar 
 ```
@@ -497,7 +497,7 @@ Le decimos el nombre que usaremos, el comando a ejecutar, el directorio donde se
 
 ####Fabric
 
-Fabric es una herramienta con la que podremos administrar una máquina remota una vez haya sido creada y aprovisionada con todo lo necesario. Una vez creado el fichero mencionado anteriormente, usaremos el fichero de Fabric [fabfile.py]() para redactar una serie de funciones que podremos ejecutar con Fabric. Vemos el fichero:
+Fabric es una herramienta con la que podremos administrar una máquina remota una vez haya sido creada y aprovisionada con todo lo necesario. Una vez creado el fichero mencionado anteriormente, usaremos el fichero de Fabric [fabfile.py](https://github.com/sergiocaceres/IV/blob/master/fabfile.py) para redactar una serie de funciones que podremos ejecutar con Fabric. Vemos el fichero:
 ```
 from fabric.api import *
 import os
