@@ -557,4 +557,38 @@ Ahora vemos que responde sin ningún problema
 ![Imagen 4](http://i65.tinypic.com/dt9au.jpg)
 ![Imagen 5](http://i67.tinypic.com/1zvd849.jpg)
 
-Con todo este proceso, podemos ver como hemos instalado los requisitos para poder realizar este hito. Vemos su ejecución con Fabric y su funcionamiento con las últimas capturas de pantalla. Si queremos empezar a hablarle al bot, tan solo tendremos que pinchar [aquí](https://telegram.me/comuni_bot)
+Con todo este proceso, podemos ver como hemos instalado los requisitos para poder realizar este hito. Vemos su ejecución con Fabric y su funcionamiento con las últimas capturas de pantalla. 
+
+####Fichero de despliegue automático
+
+He creado un fichero para que simplemente ejecutando dicho fichero, se descarguen los plugins necesarios, se lance la máquina virtual en Azure y lance la ejecución con Fabric. Este es el archivo [script_despliegue.sh](https://github.com/sergiocaceres/IV/blob/master/script_despliegue.sh). Podemos verlo a continuación:
+```
+#!/bin/bash
+
+sudo apt-get update
+
+# Instalamos vagrant
+sudo wget https://releases.hashicorp.com/vagrant/1.8.6/vagrant_1.8.6_i686.deb
+sudo dpkg -i vagrant_1.8.6_i686.deb
+
+# Instalar plugin para azure
+sudo vagrant plugin install vagrant-azure
+
+# Instalación Ansible
+sudo apt-get install ansible
+
+
+# Despliegue en Azure
+sudo vagrant up --provider=azure
+
+#Instalamos Fabric
+sudo apt-get install fabric
+
+# Despliegue de la aplicación con Fabric
+
+# Actualiza el supervisor
+fab -p Abecedario1234# -H sergio@comunibot.cloudapp.net recargar
+#Inicia el supervisor
+fab -p Abecedario1234# -H sergio@comunibot.cloudapp.net iniciar
+```
+Si queremos empezar a hablarle al bot, tan solo tendremos que pinchar [aquí](https://telegram.me/comuni_bot)
