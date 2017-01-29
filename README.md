@@ -550,7 +550,7 @@ Vemos que tenemos una serie de funciones que podremos ejecutar. Vemos que hacen:
 - def recargar() -> Actualiza el supervisor por si hemos hecho algún cambio en el fichero comuni_bot.conf mencionado anteriormente
 - iniciar() -> Inicia la ejecución del bot con supervisor, pasándole las variables de entorno
 - iniciar_no_supervisor() -> Como el propio nombre indica, inicia la ejecución del bot pero sin supervisor, es decir, que si cerramos nuesra terminal, el proceso se pararía.
-- iniciar_hup() -> Inicia la ejecución del bot parecido a supervisor ya que si se cierra la terminal el proveso continúa
+- iniciar_hup() -> Inicia la ejecución del bot parecido a supervisor ya que si se cierra la terminal el proceso continúa, pero sin usar el fichero comuni_bot.conf
 
 Una vez explicado el fichero, vamos a ver como se lanza nuestro bot usando Fabric. Es simple, debemos poner la siguiente orden:
 ```
