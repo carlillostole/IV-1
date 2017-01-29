@@ -562,7 +562,7 @@ Donde ORDEN es una de la función explicada justo arriba. Veamos una imagen de l
 ![Imagen 2](http://i64.tinypic.com/2wrmcdy.png)
 ![Imagen 3](http://i63.tinypic.com/10h0j7t.png)
 
-Ahora vemos que responde sin ningún problema, tanto ejecutándolo con Nohub como ejecutándolo con supervisor.
+Ahora vemos que responde sin ningún problema, tanto ejecutándolo con Nohup como ejecutándolo con supervisor.
 ![Imagen 4](http://i65.tinypic.com/dt9au.jpg)
 ![Imagen 5](http://i67.tinypic.com/1zvd849.jpg)
 
