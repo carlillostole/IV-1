@@ -495,6 +495,11 @@ stderr_logfile=/var/log/supervisor/comuni_bot-error.log
 
 Le decimos el nombre que usaremos, el comando a ejecutar, el directorio donde se van a almacenar los logs y los más importante, nuestras variables de entorno.
 
+####Nohup
+
+Si lo que queremos es simplificar y que realice lo mismo que haciéndolo con un supervisor, bastaría con añadir una función en el fichero de Fabric, que lo veremos en el siguiente apartado. De esta forma, ya no nos haría falta el fichero [comuni_bot.conf](https://github.com/sergiocaceres/IV/blob/master/comuni_bot.conf).
+
+
 ####Fabric
 
 Fabric es una herramienta con la que podremos administrar una máquina remota una vez haya sido creada y aprovisionada con todo lo necesario. 
@@ -532,6 +537,10 @@ def iniciar():
 def iniciar_no_supervisor():
     with shell_env(TOKENBOT=os.environ['TOKENBOT'], USR_BD=os.environ['USR_BD'], PASS_BD=os.environ['PASS_BD']):
         run('cd IV && make execute')
+	
+def iniciar_hup():
+    with shell_env(TOKENBOT=os.environ['TOKENBOT'], USR_BD=os.environ['USR_BD'], PASS_BD=os.environ['PASS_BD']):
+        run ('nohup python IV/bot_telegram/bot.py >& /dev/null &',pty=False)
 ```	
 Vemos que tenemos una serie de funciones que podremos ejecutar. Vemos que hacen:
 - descargar() -> Nos descarga el repositorio de GitHub
@@ -541,6 +550,7 @@ Vemos que tenemos una serie de funciones que podremos ejecutar. Vemos que hacen:
 - def recargar() -> Actualiza el supervisor por si hemos hecho algún cambio en el fichero comuni_bot.conf mencionado anteriormente
 - iniciar() -> Inicia la ejecución del bot con supervisor, pasándole las variables de entorno
 - iniciar_no_supervisor() -> Como el propio nombre indica, inicia la ejecución del bot pero sin supervisor, es decir, que si cerramos nuesra terminal, el proceso se pararía.
+- iniciar_hup() -> Inicia la ejecución del bot parecido a supervisor ya que si se cierra la terminal el proveso continúa
 
 Una vez explicado el fichero, vamos a ver como se lanza nuestro bot usando Fabric. Es simple, debemos poner la siguiente orden:
 ```
@@ -552,16 +562,16 @@ Donde ORDEN es una de la función explicada justo arriba. Veamos una imagen de l
 ![Imagen 2](http://i64.tinypic.com/2wrmcdy.png)
 ![Imagen 3](http://i63.tinypic.com/10h0j7t.png)
 
-Ahora vemos que responde sin ningún problema
-
+Ahora vemos que responde sin ningún problema, tanto ejecutándolo con Nohub como ejecutándolo con supervisor.
 ![Imagen 4](http://i65.tinypic.com/dt9au.jpg)
 ![Imagen 5](http://i67.tinypic.com/1zvd849.jpg)
+
 
 Con todo este proceso, podemos ver como hemos instalado los requisitos para poder realizar este hito. Vemos su ejecución con Fabric y su funcionamiento con las últimas capturas de pantalla. 
 
 ####Fichero de despliegue automático
 
-He creado un fichero para que simplemente ejecutando dicho fichero, se descarguen los plugins necesarios, se lance la máquina virtual en Azure y lance la ejecución con Fabric. Este es el archivo [script_despliegue.sh](https://github.com/sergiocaceres/IV/blob/master/script_despliegue.sh). Podemos verlo a continuación:
+He creado un fichero para que simplemente ejecutándolo, se descarguen los plugins necesarios, se lance la máquina virtual en Azure y lance la ejecución con Fabric. Este es el archivo [script_despliegue.sh](https://github.com/sergiocaceres/IV/blob/master/script_despliegue.sh). Podemos verlo a continuación:
 ```
 #!/bin/bash
 
@@ -589,6 +599,9 @@ sudo apt-get install fabric
 # Actualiza el supervisor
 fab -p Abecedario1234# -H sergio@comunibot.cloudapp.net recargar
 #Inicia el supervisor
-fab -p Abecedario1234# -H sergio@comunibot.cloudapp.net iniciar
+#fab -p Abecedario1234# -H sergio@comunibot.cloudapp.net iniciar
+
+#Inicia con nohup
+fab -p Abecedario1234# -H sergio@comunibot.cloudapp.net iniciar_hup
 ```
 Si queremos empezar a hablarle al bot, tan solo tendremos que pinchar [aquí](https://telegram.me/comuni_bot)
