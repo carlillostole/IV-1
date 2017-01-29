@@ -24,3 +24,7 @@ def iniciar():
 def iniciar_no_supervisor():
     with shell_env(TOKENBOT=os.environ['TOKENBOT'], USR_BD=os.environ['USR_BD'], PASS_BD=os.environ['PASS_BD']):
         run('cd IV && make execute')
+
+def iniciar_hup():
+    with shell_env(TOKENBOT=os.environ['TOKENBOT'], USR_BD=os.environ['USR_BD'], PASS_BD=os.environ['PASS_BD']):
+        run ('nohup python IV/bot_telegram/bot.py >& /dev/null &',pty=False)
