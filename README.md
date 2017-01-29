@@ -184,7 +184,8 @@ Podremos ver un ejemplo de su ejecución [aquí](https://github.com/sergiocacere
 
 La aplicación con la que he venido trabajando se ha desplegado en Azure. He empleado [Vagrant](https://www.vagrantup.com) como herramienta para la creación de la máquina virtual en la cual se alojará nuestra aplicación, en mi caso el bot de Telegram. También contendrá [Ansible](https://www.ansible.com/) para el aprovisionamiento y [Fabric](http://www.fabfile.org/) para instalar y poner el bot en ejecución. 
 
-Todos los ficheros nombrados anteriormente son los siguientes: [Vagranfile](https://github.com/sergiocaceres/IV/blob/master/Vagrantfile) para crear la máquina virtual, [playbook de Ansible](https://github.com/sergiocaceres/IV/blob/master/configuracion_ansible.yml) para el aprovisionamiento, el fichero [fabfile](https://github.com/sergiocaceres/IV/blob/master/fabfile.py) para acceder remotamente y, por último, el fichero [comuni_bot.conf](https://github.com/sergiocaceres/IV/blob/master/comuni_bot.conf) para lanzar el bot con supervisor y se mantenga en uso aunque se cierre la terminal.
+Todos los ficheros nombrados anteriormente son los siguientes: [Vagranfile](https://github.com/sergiocaceres/IV/blob/master/Vagrantfile) para crear la máquina virtual, [playbook de Ansible](https://github.com/sergiocaceres/IV/blob/master/configuracion_ansible.yml) para el aprovisionamiento, el fichero [fabfile](https://github.com/sergiocaceres/IV/blob/master/fabfile.py) para acceder remotamente y, por último, el fichero [comuni_bot.conf](https://github.com/sergiocaceres/IV/blob/master/comuni_bot.conf) para lanzar el bot con supervisor y se mantenga en uso aunque se cierre la terminal. Si no se quiere usar supervisor, se puede utilizar nohup, actúa de la misma manera.
+
 Para crear la máquina virtual usaremos la siguiente orden:
 ```
 sudo vagrant up --provider=azure
@@ -195,5 +196,7 @@ fab -H nombremaquina@nombreDNSmv funcion
 ```
 
 Con esto nuestro bot ya estaría funcionando perfectamente y listo para poder hablarle.
+
+No obstante, se ha creado un script que automatiza todo este proceso para que simplemente con lanzar el script, se descarguen los requisitos necesarios, cree la máquina virtual en Azure y lance la ejecución del bot con nohup. Puede verse el script [aquí](https://github.com/sergiocaceres/IV/blob/master/script_despliegue.sh)
 
 Para encontrar más información del despliegue, pulsar [aquí](https://github.com/sergiocaceres/IV/tree/Documentacion#quinto-hito-diseño-del-soporte-virtual-para-el-despliegue-de-una-aplicación)
