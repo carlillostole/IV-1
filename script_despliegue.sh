@@ -24,5 +24,7 @@ sudo apt-get install fabric
 # Actualiza el supervisor
 fab -p Abecedario1234# -H sergio@comunibot.cloudapp.net recargar
 #Inicia el supervisor
-fab -p Abecedario1234# -H sergio@comunibot.cloudapp.net iniciar
+#fab -p Abecedario1234# -H sergio@comunibot.cloudapp.net iniciar
 
+#Inicia con nohup
+fab -p Abecedario1234# -H sergio@comunibot.cloudapp.net iniciar_hup
